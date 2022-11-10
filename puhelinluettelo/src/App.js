@@ -35,6 +35,14 @@ const App = () => {
       number: newNumber,
       id: persons.length,
     }
+
+    axios
+      .post('http://localhost:3001/persons', nameObject)
+      .then(response => {
+        setPersons(persons.concat(response.data))
+        setNewName('')
+        setNewNumber('')
+      })
     
     const apuArray = []
 
